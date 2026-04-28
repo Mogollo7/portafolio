@@ -1,0 +1,22 @@
+{
+    "name":  "portafolio",
+    "version":  "1.0.0",
+    "description":  "",
+    "main":  "index.js",
+    "scripts":  {
+                    "build:css":  "tailwindcss -i ./tailwind-input.css -o ./tailwind.css --minify",
+                    "watch:css":  "tailwindcss -i ./tailwind-input.css -o ./tailwind.css --watch",
+                    "webp":  "node convert-webp.js"
+                },
+    "keywords":  [
+
+                 ],
+    "author":  "",
+    "license":  "ISC",
+    "type":  "commonjs",
+    "devDependencies":  {
+                            "@tailwindcss/cli":  "^4.2.4",
+                            "sharp":  "^0.34.5",
+                            "tailwindcss":  "^4.2.4"
+                        }
+}

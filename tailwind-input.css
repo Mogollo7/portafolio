@@ -1,0 +1,4 @@
+/* tailwind-input.css — entrada para el build de Tailwind */
+@tailwind base;
+@tailwind components;
+@tailwind utilities;

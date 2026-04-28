@@ -1,0 +1,149 @@
+/* =====================================================
+   sobre-mi.css — Sección "Sobre Mí"
+   (sobre-mi.responsive.css fusionado aquí)
+   ===================================================== */
+@font-face {
+    font-family: 'SdGlitchRobot';
+    src: url('../Sdglitchrobotdemo-GOPdO.ttf') format('truetype');
+}
+
+#sobre-mi {
+    position: relative;
+    padding: 10px 10% 100px 10%;
+    min-height: 100vh;
+    display: flex; flex-direction: column; justify-content: center;
+    overflow: hidden;
+    margin-top: 80px; margin-bottom: 80px;
+}
+
+/* Decoración izquierda — máscara SVG */
+.about-decor-left {
+    position: absolute; left: 0; top: 0;
+    height: 100vh; width: 100%;
+    background-color: var(--union-color);
+    mask-image: url('../svg/LEFT.svg');
+    -webkit-mask-image: url('../svg/LEFT.svg');
+    mask-size: auto 100%; -webkit-mask-size: auto 100%;
+    mask-repeat: no-repeat; -webkit-mask-repeat: no-repeat;
+    mask-position: left center; -webkit-mask-position: left center;
+    z-index: -1; pointer-events: none;
+    transition: background-color 0.3s ease;
+}
+
+/* Decoración derecha — máscara SVG */
+.about-decor-right {
+    position: absolute; right: 0; top: 0;
+    width: 50%; height: 50%;
+    background-color: var(--union-color);
+    mask-image: url('../svg/rigth.svg');
+    -webkit-mask-image: url('../svg/rigth.svg');
+    mask-size: contain; -webkit-mask-size: contain;
+    mask-repeat: no-repeat; -webkit-mask-repeat: no-repeat;
+    mask-position: right top; -webkit-mask-position: right top;
+    z-index: -1; pointer-events: none;
+    transition: background-color 0.3s ease;
+}
+
+#sobre-mi .section-title {
+    position: absolute; top: 60px; left: 50%;
+    transform: translateX(-50%); margin: 0; z-index: 5;
+    font-family: 'SdGlitchRobot', monospace;
+    white-space: nowrap;
+}
+
+.about-container {
+    display: flex; align-items: center; gap: 80px;
+    max-width: 1300px; margin: 100px auto 0;
+    position: relative; z-index: 2;
+}
+
+.about-text-content {
+    flex: 1.5; font-family: 'Orbitron', sans-serif;
+    font-size: 1.15rem; line-height: 1.7;
+    color: var(--text-color); text-align: left;
+}
+.about-text-content p { margin: 0; padding: 0; }
+.about-text-content p+p { margin-top: 0.8em; }
+
+.about-image-content { flex: 1; display: flex; justify-content: center; align-items: center; margin-left: 0; }
+
+/* Bunny Glitch */
+.bunny-glitch-container {
+    position: relative; width: 100%; max-width: 420px;
+    overflow: hidden; animation: bunny-burst 6s infinite;
+}
+.about-bunny-img { width: 100%; height: auto; object-fit: contain; image-rendering: pixelated; }
+.about-bunny-img.glitch-1,
+.about-bunny-img.glitch-2 { position: absolute; top: 0; left: 0; opacity: 0; }
+
+@keyframes bunny-burst {
+    0%, 68%, 76%, 100% { transform: scale(1); }
+    70% { transform: translate(-8px,5px) scale(1.05); animation-timing-function: steps(1); }
+    72% { transform: translate(8px,-5px) scale(1.03); }
+    74% { transform: translate(0,0) scale(1); }
+}
+.about-bunny-img.glitch-1 { animation: bunny-g1-trigger 3s infinite, bunny-anim-1 0.3s infinite linear alternate-reverse; mix-blend-mode: screen; }
+.about-bunny-img.glitch-2 { animation: bunny-g2-trigger 3s infinite, bunny-anim-2 0.2s infinite linear alternate-reverse; mix-blend-mode: multiply; }
+
+@keyframes bunny-g1-trigger {
+    0%, 69%, 76%, 100% { opacity: 0; }
+    70%, 75% { opacity: 0.85; }
+}
+@keyframes bunny-g2-trigger {
+    0%, 69%, 76%, 100% { opacity: 0; }
+    71%, 75% { opacity: 0.85; }
+}
+@keyframes bunny-anim-1 {
+    0%   { clip-path: inset(20% 0 80% 0); transform: translate(-10px,5px); }
+    20%  { clip-path: inset(60% 0 10% 0); transform: translate(10px,-5px); }
+    40%  { clip-path: inset(10% 0 50% 0); transform: translate(-10px,10px); }
+    60%  { clip-path: inset(80% 0  5% 0); transform: translate(10px,-10px); }
+    80%  { clip-path: inset(30% 0 40% 0); transform: translate(-10px,5px); }
+    100% { clip-path: inset(50% 0 30% 0); transform: translate(10px,-5px); }
+}
+@keyframes bunny-anim-2 {
+    0%   { clip-path: inset(10% 0 60% 0); transform: translate(10px,-5px); }
+    20%  { clip-path: inset(30% 0 20% 0); transform: translate(-10px,5px); }
+    40%  { clip-path: inset(70% 0 10% 0); transform: translate(10px,-10px); }
+    60%  { clip-path: inset(20% 0 50% 0); transform: translate(-10px,10px); }
+    80%  { clip-path: inset(90% 0  5% 0); transform: translate(10px,-5px); }
+    100% { clip-path: inset( 5% 0 80% 0); transform: translate(-10px,5px); }
+}
+.about-bunny-img:hover { transform: scale(1.02); }
+
+/* Decoraciones */
+.about-decor-boxi {
+    position: absolute; top: 60px; left: 80px;
+    width: 60px; height: auto;
+    filter: invert(21%) sepia(93%) saturate(5831%) hue-rotate(338deg) brightness(89%) contrast(96%);
+    z-index: 1;
+}
+.about-decor-point {
+    position: absolute; left: auto; top: 90%; width: 40%; height: auto;
+    opacity: 0.5; z-index: 1; pointer-events: none;
+    filter: invert(21%) sepia(93%) saturate(5831%) hue-rotate(338deg) brightness(89%) contrast(96%);
+}
+.about-decor-nobox {
+    position: absolute; top: 60px; right: 60px;
+    width: 55px; height: auto;
+    filter: brightness(0) invert(78%) sepia(8%) saturate(200%) hue-rotate(220deg);
+    pointer-events: none; z-index: 1;
+}
+[data-theme="dark"] .about-decor-nobox { filter: brightness(0) invert(20%); }
+
+/* ─── Responsive ─── */
+@media (max-width: 1250px) {
+    .about-decor-boxi { display: none; }
+}
+@media (max-width: 1100px) {
+    .about-decor-left, .about-decor-right { display: none; }
+    .about-container { flex-direction: column-reverse; gap: 50px; }
+    .about-text-content { font-size: 1.1rem; padding: 0 20px; text-align: left; }
+    .about-bunny-img { max-width: 300px; }
+    .about-decor-line, .about-decor-point { display: none; }
+    .about-bg-decor { padding-left: 20px; gap: 20px; }
+    .about-note { width: 50px; }
+}
+@media (max-width: 500px) {
+    .about-decor-nobox { display: none; }
+}
